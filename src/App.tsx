@@ -192,10 +192,10 @@ function App() {
               />
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-white dark:text-gray-100 mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+            <h1 className="text-5xl md:text-7xl font-bold text-white dark:text-gray-100 mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent animate-gradient">
               Yassine ET-TAHERY
             </h1>
-            <p className="text-2xl md:text-3xl text-cyan-300 dark:text-cyan-400 font-medium mb-6">
+            <p className="text-2xl md:text-3xl text-blue-300 dark:text-blue-400 font-medium mb-6">
               Mobile & Web Developer
             </p>
             <p className="text-lg text-gray-300 dark:text-gray-400 max-w-2xl mb-8">
@@ -217,7 +217,7 @@ function App() {
               </a>
             </div>
 
-            <a href="#about" className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 dark:from-cyan-500 dark:via-purple-500 dark:to-pink-500 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-cyan-400/50 dark:hover:shadow-cyan-300/30 transition-all hover:scale-105">
+            <a href="#about" className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-400/50 transition-all hover:scale-105">
               Découvrir mon portfolio
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
             </a>
@@ -237,7 +237,7 @@ function App() {
           <div className="container mx-auto max-w-6xl">
             <div className="bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/50 dark:hover:border-cyan-300/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-400/20 dark:hover:shadow-cyan-300/10">
               <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-6 flex items-center gap-3">
-                <span className="w-2 h-12 bg-gradient-to-b from-cyan-400 to-purple-400 dark:from-cyan-300 dark:to-purple-300 rounded-full"></span>
+                <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
                 À propos de moi
               </h2>
               <p className="text-lg text-gray-300 dark:text-gray-400 leading-relaxed">
@@ -254,7 +254,7 @@ function App() {
         <section id="skills" className="py-20 px-4">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-12 text-center flex items-center justify-center gap-3">
-              <span className="w-2 h-12 bg-gradient-to-b from-cyan-400 to-blue-400 dark:from-cyan-300 dark:to-blue-300 rounded-full"></span>
+              <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
               Compétences & Technologies
             </h2>
 
@@ -290,7 +290,7 @@ function App() {
         <section id="projects" className="py-20 px-4">
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-12 text-center flex items-center justify-center gap-3">
-              <span className="w-2 h-12 bg-gradient-to-b from-cyan-400 to-pink-400 dark:from-cyan-300 dark:to-pink-300 rounded-full"></span>
+              <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
               Projets Réalisés
             </h2>
 
@@ -339,7 +339,7 @@ function App() {
           <div className="container mx-auto max-w-4xl">
             <div className="bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 dark:from-cyan-400/10 dark:via-purple-400/10 dark:to-pink-400/10 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-600/20">
               <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-8 text-center flex items-center justify-center gap-3">
-                <span className="w-2 h-12 bg-gradient-to-b from-cyan-400 to-purple-400 dark:from-cyan-300 dark:to-purple-300 rounded-full"></span>
+                <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
                 Contactez-moi
               </h2>
 
@@ -439,7 +439,7 @@ function App() {
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="px-8 py-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 dark:from-cyan-500 dark:via-purple-500 dark:to-pink-500 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-cyan-400/50 dark:hover:shadow-cyan-300/30 transition-all hover:scale-105"
+                      className="px-8 py-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-400/50 transition-all hover:scale-105"
                     >
                       Envoyer le message
                     </button>
