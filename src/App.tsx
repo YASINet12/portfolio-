@@ -144,7 +144,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-950 dark:bg-black relative overflow-hidden transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 to-black relative overflow-hidden transition-colors duration-300">
       <Header />
 
       {/* Cosmic Background */}
