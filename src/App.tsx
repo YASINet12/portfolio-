@@ -60,7 +60,7 @@ function App() {
       title: 'UI Design System',
       description: 'Système de design moderne avec composants réutilisables et thèmes personnalisables',
       tech: ['React', 'TypeScript', 'Tailwind', 'Figma'],
-      gradient: 'from-pink-500 to-rose-500',
+      gradient: 'from-blue-500 to-blue-600',
       link: '#'
     },
     {
@@ -110,7 +110,7 @@ function App() {
     { name: 'TypeScript', level: 70, color: 'bg-blue-500', icon: <Code2 size={20} /> },
     { name: 'Node.js & Express', level: 65, color: 'bg-green-500', icon: <Cpu size={20} /> },
     { name: 'Flutter & Dart', level: 60, color: 'bg-purple-500', icon: <Smartphone size={20} /> },
-    { name: 'UI/UX Design', level: 80, color: 'bg-pink-500', icon: <Palette size={20} /> },
+    { name: 'UI/UX Design', level: 80, color: 'bg-blue-500', icon: <Palette size={20} /> },
     { name: 'MongoDB & PostgreSQL', level: 55, color: 'bg-emerald-500', icon: <Database size={20} /> },
     { name: 'Next.js & Vue.js', level: 70, color: 'bg-indigo-500', icon: <Globe size={20} /> },
     { name: 'REST API & GraphQL', level: 65, color: 'bg-orange-500', icon: <Cpu size={20} /> }
@@ -166,10 +166,10 @@ function App() {
         </div>
 
         {/* Nebula Effects - Hidden in dark mode for black universe */}
-        <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-violet-600/20 via-purple-600/20 to-pink-600/20 rounded-full blur-3xl animate-pulse dark:hidden"></div>
+        <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-400/20 rounded-full blur-3xl animate-pulse dark:hidden"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-cyan-500/15 via-blue-500/15 to-indigo-500/15 rounded-full blur-3xl animate-pulse delay-1000 dark:hidden"></div>
         <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500 dark:hidden"></div>
-        <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-r from-rose-500/15 via-pink-500/15 to-fuchsia-500/15 rounded-full blur-3xl animate-pulse delay-1500 dark:hidden"></div>
+        <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/15 via-blue-400/15 to-blue-300/15 rounded-full blur-3xl animate-pulse delay-1500 dark:hidden"></div>
 
         {/* Galaxy Spiral - Hidden in dark mode for black universe */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-40 h-40 border border-cyan-400/20 rounded-full animate-spin dark:hidden" style={{ animationDuration: '20s' }}>
@@ -184,7 +184,7 @@ function App() {
         <div className="container mx-auto px-4 py-20">
           <div className="flex flex-col items-center text-center">
             <div className="relative mb-8 group">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-400 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity animate-pulse"></div>
               <img
                 src="/images/Image .jpg"
                 alt="Yassine ET-TAHERY"
@@ -242,7 +242,7 @@ function App() {
               </h2>
               <p className="text-lg text-gray-300 dark:text-gray-400 leading-relaxed">
                 Je suis un <span className="text-purple-400 dark:text-purple-300 font-semibold">développeur mobile et web</span>, passionné par les technologies modernes. Je me spécialise dans le développement
-                d'applications mobiles multiplateformes avec <span className="text-pink-400 dark:text-pink-300">React Native</span> et <span className="text-pink-400 dark:text-pink-300">Flutter</span>,
+                d'applications mobiles multiplateformes avec <span className="text-blue-400 dark:text-blue-300">React Native</span> et <span className="text-blue-400 dark:text-blue-300">Flutter</span>,
                 ainsi que dans la création d'interfaces web dynamiques en utilisant <span className="text-cyan-400 dark:text-cyan-300">React</span>, <span className="text-cyan-400 dark:text-cyan-300">Next.js</span> et <span className="text-cyan-400 dark:text-cyan-300">Vue.js</span>.
                 Mon objectif est de concevoir des solutions performantes, intuitives et innovantes, en plaçant la qualité du code et l'expérience utilisateur au centre de mes priorités.
               </p>
@@ -305,7 +305,7 @@ function App() {
                     {project.icon}
                   </div>
 
-                  <h3 className="text-xl font-bold text-white dark:text-gray-100 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 dark:group-hover:from-cyan-300 group-hover:to-pink-400 dark:group-hover:to-pink-300 group-hover:bg-clip-text transition-all">
+                  <h3 className="text-xl font-bold text-white dark:text-gray-100 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 dark:group-hover:from-blue-300 group-hover:to-blue-600 dark:group-hover:to-blue-500 group-hover:bg-clip-text transition-all">
                     {project.title}
                   </h3>
 
@@ -323,7 +323,7 @@ function App() {
 
                   <a
                     href={project.link}
-                    className="inline-flex items-center gap-2 text-sm text-cyan-400 dark:text-cyan-300 hover:text-pink-400 dark:hover:text-pink-300 transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-sm text-blue-400 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors group/link"
                   >
                     Voir le projet
                     <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
@@ -337,7 +337,7 @@ function App() {
         {/* Contact Section */}
         <section id="contact" className="py-20 px-4">
           <div className="container mx-auto max-w-4xl">
-            <div className="bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 dark:from-cyan-400/10 dark:via-purple-400/10 dark:to-pink-400/10 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-600/20">
+            <div className="bg-gradient-to-br from-blue-500/20 via-blue-400/20 to-blue-300/20 dark:from-blue-400/10 dark:via-blue-300/10 dark:to-blue-200/10 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-600/20">
               <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-8 text-center flex items-center justify-center gap-3">
                 <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
                 Contactez-moi
@@ -345,7 +345,7 @@ function App() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <a href="mailto:yassinetahery7@gmail.com" className="flex items-center gap-4 bg-white/10 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-105 group">
-                  <div className="p-3 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl group-hover:scale-110 transition-transform">
                     <Mail className="text-white" size={24} />
                   </div>
                   <div>
