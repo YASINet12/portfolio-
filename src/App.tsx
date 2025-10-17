@@ -106,14 +106,15 @@ function App() {
   ];
 
   const skills = [
-    { name: 'React & React Native', level: 75, color: 'bg-cyan-500', icon: <Code2 size={20} /> },
-    { name: 'TypeScript', level: 70, color: 'bg-blue-500', icon: <Code2 size={20} /> },
-    { name: 'Node.js & Express', level: 65, color: 'bg-green-500', icon: <Cpu size={20} /> },
-    { name: 'Flutter & Dart', level: 60, color: 'bg-purple-500', icon: <Smartphone size={20} /> },
-    { name: 'UI/UX Design', level: 80, color: 'bg-blue-500', icon: <Palette size={20} /> },
-    { name: 'MongoDB & PostgreSQL', level: 55, color: 'bg-emerald-500', icon: <Database size={20} /> },
-    { name: 'Next.js & Vue.js', level: 70, color: 'bg-indigo-500', icon: <Globe size={20} /> },
-    { name: 'REST API & GraphQL', level: 65, color: 'bg-orange-500', icon: <Cpu size={20} /> }
+    { name: 'React & React Native', level: 75, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Code2 size={20} /> },
+    { name: 'TypeScript', level: 70, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Code2 size={20} /> },
+    { name: 'Node.js & Express', level: 65, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Cpu size={20} /> },
+    { name: 'Flutter & Dart', level: 60, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Smartphone size={20} /> },
+    { name: 'UI/UX Design', level: 80, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Palette size={20} /> },
+    { name: 'MongoDB & PostgreSQL', level: 55, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Database size={20} /> },
+    { name: 'Next.js & Vue.js', level: 70, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Globe size={20} /> },
+    { name: 'REST API & GraphQL', level: 65, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Cpu size={20} /> },
+    { name: 'Git & GitHub', level: 85, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Github size={20} /> }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -258,28 +259,19 @@ function App() {
               Compétences & Technologies
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {skills.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="skill-card bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-6 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/50 dark:hover:border-cyan-300/50 transition-all duration-500 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8"
+                  className="skill-card bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-6 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/50 dark:hover:border-cyan-300/50 transition-all duration-500 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8 flex items-center gap-4"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`p-2 ${skill.color} rounded-lg text-white`}>
-                      {skill.icon}
-                    </div>
-                    <span className="text-white dark:text-gray-100 font-semibold">{skill.name}</span>
+                  <div className={`p-4 rounded-xl ${skill.color} text-white text-2xl`}>
+                    {skill.icon}
                   </div>
-                  <div className="w-full bg-white/10 dark:bg-gray-700/50 rounded-full h-3 overflow-hidden">
-                    <div
-                      className={`h-full ${skill.color} rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
-                      style={{ width: `${skill.level}%` }}
-                    >
-                      <div className="absolute inset-0 bg-white/30 dark:bg-gray-200/30 animate-shimmer"></div>
-                    </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white dark:text-gray-100">{skill.name}</h3>
                   </div>
-                  <span className="text-gray-400 dark:text-gray-500 text-sm mt-2 block">{skill.level}%</span>
                 </div>
               ))}
             </div>
@@ -301,7 +293,7 @@ function App() {
                   className="project-card group bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-6 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/30 dark:hover:border-cyan-300/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 opacity-0 translate-y-8"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className={`w-16 h-16 bg-gradient-to-br ${project.gradient} rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
                     {project.icon}
                   </div>
 
