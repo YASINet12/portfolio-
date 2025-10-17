@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Code2, Database, Smartphone, Globe, Palette, Cpu, ExternalLink, ArrowRight, Download } from 'lucide-react';
+import { Mail, Github, Linkedin, Code2, Database, Smartphone, Globe, Palette, Cpu, ExternalLink, ArrowRight, Download, ShoppingCart, Music, Activity, Cloud, Monitor, ShoppingBag, Headphones, Dumbbell, Sun } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import Header from './components/Header';
@@ -56,65 +56,65 @@ function App() {
 
   const projects = [
     {
-      icon: '🎨',
+      icon: <Palette size={32} className="text-white" />,
       title: 'UI Design System',
       description: 'Système de design moderne avec composants réutilisables et thèmes personnalisables',
       tech: ['React', 'TypeScript', 'Tailwind', 'Figma'],
-      gradient: 'from-blue-500 to-blue-600',
+      gradient: 'from-cyan-400 to-blue-600',
       link: '#'
     },
     {
-      icon: '📱',
+      icon: <Smartphone size={32} className="text-white" />,
       title: 'Social Media App',
       description: 'Application mobile de réseau social avec chat en temps réel et stories',
       tech: ['React Native', 'Firebase', 'Redux', 'Socket.io'],
-      gradient: 'from-purple-500 to-indigo-500',
+      gradient: 'from-cyan-400 to-blue-600',
       link: '#'
     },
     {
-      icon: '🛒',
+      icon: <ShoppingBag size={32} className="text-white" />,
       title: 'E-Commerce Platform',
       description: 'Plateforme e-commerce complète avec paiement intégré et dashboard admin',
       tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Prisma'],
-      gradient: 'from-cyan-500 to-blue-500',
+      gradient: 'from-cyan-400 to-blue-600',
       link: '#'
     },
     {
-      icon: '🎵',
+      icon: <Headphones size={32} className="text-white" />,
       title: 'Music Streaming App',
       description: 'Application de streaming musical avec playlists personnalisées et recommandations IA',
       tech: ['Vue.js', 'Node.js', 'MongoDB', 'ML'],
-      gradient: 'from-green-500 to-emerald-500',
+      gradient: 'from-cyan-400 to-blue-600',
       link: '#'
     },
     {
-      icon: '💪',
+      icon: <Dumbbell size={32} className="text-white" />,
       title: 'Fitness Tracker',
       description: 'Application de suivi fitness avec statistiques détaillées et plans d\'entraînement',
       tech: ['Flutter', 'Dart', 'SQLite', 'Charts'],
-      gradient: 'from-orange-500 to-amber-500',
+      gradient: 'from-cyan-400 to-blue-600',
       link: '#'
     },
     {
-      icon: '🌤️',
+      icon: <Sun size={32} className="text-white" />,
       title: 'Weather Dashboard',
       description: 'Dashboard météo interactif avec prévisions détaillées et cartes animées',
       tech: ['React', 'OpenWeather API', 'D3.js', 'Leaflet'],
-      gradient: 'from-teal-500 to-cyan-500',
+      gradient: 'from-cyan-400 to-blue-600',
       link: '#'
     }
   ];
 
   const skills = [
-    { name: 'React & React Native', level: 75, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Code2 size={20} /> },
-    { name: 'TypeScript', level: 70, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Code2 size={20} /> },
-    { name: 'Node.js & Express', level: 65, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Cpu size={20} /> },
-    { name: 'Flutter & Dart', level: 60, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Smartphone size={20} /> },
-    { name: 'UI/UX Design', level: 80, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Palette size={20} /> },
-    { name: 'MongoDB & PostgreSQL', level: 55, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Database size={20} /> },
-    { name: 'Next.js & Vue.js', level: 70, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Globe size={20} /> },
-    { name: 'REST API & GraphQL', level: 65, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Cpu size={20} /> },
-    { name: 'Git & GitHub', level: 85, color: 'bg-gradient-to-br from-blue-400 to-blue-600', icon: <Github size={20} /> }
+    { name: 'React & React Native', level: 75, color: 'bg-sky-200', icon: <Code2 size={20} /> },
+    { name: 'TypeScript', level: 70, color: 'bg-sky-200', icon: <Code2 size={20} /> },
+    { name: 'Node.js & Express', level: 65, color: 'bg-sky-200', icon: <Cpu size={20} /> },
+    { name: 'Flutter & Dart', level: 60, color: 'bg-sky-200', icon: <Smartphone size={20} /> },
+    { name: 'UI/UX Design', level: 80, color: 'bg-sky-200', icon: <Palette size={20} /> },
+    { name: 'MongoDB & PostgreSQL', level: 55, color: 'bg-sky-200', icon: <Database size={20} /> },
+    { name: 'Next.js & Vue.js', level: 70, color: 'bg-sky-200', icon: <Globe size={20} /> },
+    { name: 'REST API & GraphQL', level: 65, color: 'bg-sky-200', icon: <Cpu size={20} /> },
+    { name: 'Git & GitHub', level: 85, color: 'bg-sky-200', icon: <Github size={20} /> }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -204,17 +204,17 @@ function App() {
             </p>
 
             <div className="flex gap-4 mb-12">
-              <a href="mailto:yassinetahery7@gmail.com" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110">
-                <Mail size={24} />
+              <a href="mailto:yassinetahery7@gmail.com" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110 border border-sky-200">
+                <Mail size={24} className="text-sky-400" />
               </a>
-              <a href="https://github.com/YASINet12" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110">
-                <Github size={24} />
+              <a href="https://github.com/YASINet12" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110 border border-sky-200">
+                <Github size={24} className="text-sky-400" />
               </a>
-              <a href="https://www.linkedin.com/feed/" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110">
-                <Linkedin size={24} />
+              <a href="https://www.linkedin.com/feed/" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110 border border-sky-200">
+                <Linkedin size={24} className="text-sky-400" />
               </a>
-              <a href="/cv/CV_Yassine_ET_TAHERY.pdf" download title="Télécharger mon CV" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110">
-                <Download size={24} />
+              <a href="/cv/CV_Yassine_ET_TAHERY.pdf" download title="Télécharger mon CV" className="p-3 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-110 border border-sky-200">
+                <Download size={24} className="text-sky-400" />
               </a>
             </div>
 
@@ -266,8 +266,10 @@ function App() {
                   className="skill-card bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-6 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/50 dark:hover:border-cyan-300/50 transition-all duration-500 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8 flex items-center gap-4"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className={`p-4 rounded-xl ${skill.color} text-white text-2xl`}>
-                    {skill.icon}
+                  <div className={`p-4 rounded-xl ${skill.color} text-white text-2xl border border-sky-200`}>
+                    <div className="text-sky-400">
+                      {skill.icon}
+                    </div>
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white dark:text-gray-100">{skill.name}</h3>
@@ -290,10 +292,10 @@ function App() {
               {projects.map((project, index) => (
                 <div
                   key={project.title}
-                  className="project-card group bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-6 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/30 dark:hover:border-cyan-300/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 opacity-0 translate-y-8"
+                  className="project-card group bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-4 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/30 dark:hover:border-cyan-300/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 opacity-0 translate-y-8"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className={`w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${project.gradient} rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 border border-sky-200`}>
                     {project.icon}
                   </div>
 
@@ -329,7 +331,7 @@ function App() {
         {/* Contact Section */}
         <section id="contact" className="py-20 px-4">
           <div className="container mx-auto max-w-4xl">
-            <div className="bg-gradient-to-br from-blue-500/20 via-blue-400/20 to-blue-300/20 dark:from-blue-400/10 dark:via-blue-300/10 dark:to-blue-200/10 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/20 dark:border-gray-600/20">
+              <div className="bg-gradient-to-br from-blue-500/20 via-blue-400/20 to-blue-300/20 dark:from-blue-400/10 dark:via-blue-300/10 dark:to-blue-200/10 backdrop-blur-xl rounded-3xl p-4 md:p-6 border border-white/20 dark:border-gray-600/20">
               <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-8 text-center flex items-center justify-center gap-3">
                 <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
                 Contactez-moi
@@ -337,7 +339,7 @@ function App() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <a href="mailto:yassinetahery7@gmail.com" className="flex items-center gap-4 bg-white/10 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-105 group">
-                  <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl group-hover:scale-110 transition-transform border border-sky-200">
                     <Mail className="text-white" size={24} />
                   </div>
                   <div>
@@ -347,7 +349,7 @@ function App() {
                 </a>
 
                 <a href="https://github.com/YASINet12" className="flex items-center gap-4 bg-white/10 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-105 group">
-                  <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl group-hover:scale-110 transition-transform border border-sky-200">
                     <Github className="text-white" size={24} />
                   </div>
                   <div>
@@ -357,7 +359,7 @@ function App() {
                 </a>
 
                 <a href="https://www.linkedin.com/feed/" className="flex items-center gap-4 bg-white/10 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-105 group">
-                  <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl group-hover:scale-110 transition-transform border border-sky-200">
                     <Linkedin className="text-white" size={24} />
                   </div>
                   <div>
@@ -367,7 +369,7 @@ function App() {
                 </a>
 
                 <a href="#" className="flex items-center gap-4 bg-white/10 dark:bg-gray-700/50 rounded-2xl p-6 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-105 group">
-                  <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl group-hover:scale-110 transition-transform border border-sky-200">
                     <Globe className="text-white" size={24} />
                   </div>
                   <div>
@@ -431,7 +433,7 @@ function App() {
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="px-8 py-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-400/50 transition-all hover:scale-105"
+                      className="px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-400/50 transition-all hover:scale-105 border border-sky-200"
                     >
                       Envoyer le message
                     </button>

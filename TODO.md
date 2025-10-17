@@ -1,13 +1,10 @@
-# TODO: Create Header Component and Run App
+# TODO: Make all icons in portfolio blue ciel (sky blue) and replace emojis with classic icons, add light blue borders, make skills backgrounds light blue, change project icons to white, add border to form button, change contact icons to white, minimize project cards and form size
 
-- [x] Create src/components/Header.tsx with navigation bar
-- [x] Update src/App.tsx to import and include Header component
-- [x] Run npm run dev to start the development server
-
-# New Task: Add Contact Form
-- [x] Add contact form with email, subject, and message fields
-- [x] Implement form submission logic
-
-# New Task: Update Theme to Dark Universe Portfolio
-- [x] Enhance background with cosmic elements (stars, galaxies)
-- [x] Update color gradients to more attractive vibrant colors
+- [x] Add className="text-sky-400" to all Lucide React icons in src/App.tsx (Hero social links, Skills cards)
+- [x] Replace emoji strings in projects array with Lucide React icons colored white
+- [x] Add border border-sky-200 to all icon containers and form button for consistent light blue borders
+- [x] Change skills background colors to bg-sky-200 for uniform light blue
+- [x] Change contact section icons to white
+- [x] Minimize size of project cards (reduce padding from p-6 to p-4)
+- [x] Minimize size of form (reduce padding from p-8 md:p-12 to p-4 md:p-6, button from px-8 py-4 to px-6 py-3)
+- [ ] Run development server to verify changes
