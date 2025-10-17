@@ -242,7 +242,7 @@ function App() {
                 À propos de moi
               </h2>
               <p className="text-lg text-gray-300 dark:text-gray-400 leading-relaxed">
-                Je suis un <span className="text-purple-400 dark:text-purple-300 font-semibold">développeur mobile et web</span>, passionné par les technologies modernes. Je me spécialise dans le développement
+                Je suis un <span className="text-sky-200 dark:text-sky-300 font-semibold">développeur mobile et web</span>, passionné par les technologies modernes. Je me spécialise dans le développement
                 d'applications mobiles multiplateformes avec <span className="text-blue-400 dark:text-blue-300">React Native</span> et <span className="text-blue-400 dark:text-blue-300">Flutter</span>,
                 ainsi que dans la création d'interfaces web dynamiques en utilisant <span className="text-cyan-400 dark:text-cyan-300">React</span>, <span className="text-cyan-400 dark:text-cyan-300">Next.js</span> et <span className="text-cyan-400 dark:text-cyan-300">Vue.js</span>.
                 Mon objectif est de concevoir des solutions performantes, intuitives et innovantes, en plaçant la qualité du code et l'expérience utilisateur au centre de mes priorités.
