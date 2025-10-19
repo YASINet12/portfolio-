@@ -7,4 +7,5 @@
 - [x] Change contact section icons to white
 - [x] Minimize size of project cards (reduce padding from p-6 to p-4)
 - [x] Minimize size of form (reduce padding from p-8 md:p-12 to p-4 md:p-6, button from px-8 py-4 to px-6 py-3)
-- [ ] Run development server to verify changes
+- [x] Run development server to verify changes
+- [x] Push changes to GitHub
