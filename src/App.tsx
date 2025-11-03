@@ -1,11 +1,12 @@
-import { Mail, Github, Linkedin, Code2, Database, Smartphone, Globe, Palette, Cpu, ExternalLink, ArrowRight, Download, ShoppingCart, Music, Activity, Cloud, Monitor, ShoppingBag, Headphones, Dumbbell, Sun, ArrowUp, Phone, Users } from 'lucide-react';
+import { Mail, Github, Linkedin, Code2, Database, Smartphone, Globe, Palette, Cpu, ExternalLink, ArrowRight, Download, ArrowUp, Phone, Users } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm } from '@formspree/react';
 import Header from './components/Header';
+import IntroAnimation from './components/IntroAnimation';
 
-function App() {
+export default function App() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+
   const [state, handleSubmit] = useForm("xvgzqryq");
   const [formData, setFormData] = useState({
     email: '',
@@ -18,20 +19,14 @@ function App() {
   const [showCollaborationMenu, setShowCollaborationMenu] = useState(false);
   const [activeCollaborationItem, setActiveCollaborationItem] = useState<number | null>(null);
 
+  const [showIntro, setShowIntro] = useState(false);
+
   useEffect(() => {
-    setIsVisible(true);
+    // Always show intro animation on page load
+    setShowIntro(true);
 
     const handleScroll = () => {
-      const sections = ['about', 'skills', 'projects', 'contact'];
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
+
 
       // Show/hide back to top button
       setShowBackToTop(window.scrollY > 300);
@@ -146,7 +141,7 @@ function App() {
         alert('Message envoyé avec succès !');
         setFormData({ email: '', subject: '', message: '' });
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Erreur lors de l\'envoi:', error);
       alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
     }
@@ -171,7 +166,15 @@ function App() {
     setActiveCollaborationItem(activeCollaborationItem === index ? null : index);
   };
 
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+    setIsVisible(true);
+  };
+
   return (
+    <>
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
+      {!showIntro && (
     <div className="min-h-screen bg-gradient-to-br from-blue-950 to-black relative overflow-hidden transition-colors duration-300">
       <Header />
 
@@ -187,10 +190,10 @@ function App() {
       <div className="fixed bottom-8 left-8 z-50">
         <button
           onClick={toggleCollaborationMenu}
-          className="text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-sky-200 animate-float"
+          className="p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-sky-200 animate-float animate-pulse-glow"
           aria-label="Collaboration menu"
         >
-          <Users size={24} />
+          <Users size={24} className="animate-color-change" />
         </button>
 
         {showCollaborationMenu && (
@@ -204,7 +207,7 @@ function App() {
               style={{ animationDelay: '0ms' }}
             >
               <a href="tel:+212622039788" className="block" onClick={(e) => e.stopPropagation()}>
-                <Phone size={20} className="text-white" />
+                <Phone size={20} className={activeCollaborationItem === 0 ? "text-sky-400" : "text-white"} />
               </a>
             </div>
 
@@ -217,7 +220,7 @@ function App() {
               style={{ animationDelay: '100ms' }}
             >
               <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" className="block" onClick={(e) => e.stopPropagation()}>
-                <Linkedin size={20} className="text-white" />
+                <Linkedin size={20} className={activeCollaborationItem === 1 ? "text-sky-400" : "text-white"} />
               </a>
             </div>
 
@@ -230,7 +233,7 @@ function App() {
               style={{ animationDelay: '200ms' }}
             >
               <a href="https://github.com/YASINet12" target="_blank" rel="noopener noreferrer" className="block" onClick={(e) => e.stopPropagation()}>
-                <Github size={20} className="text-white" />
+                <Github size={20} className={activeCollaborationItem === 2 ? "text-sky-400" : "text-white"} />
               </a>
             </div>
           </div>
@@ -571,7 +574,8 @@ function App() {
         </div>
       </footer>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes shimmer {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
@@ -629,34 +633,29 @@ function App() {
             transform: translateY(0);
           }
         }
-        .animate-slide-in-up {
-          animation: slide-in-up 0.5s ease-out forwards;
+        @keyframes color-change {
+          0%, 100% { color: #ffffff; }
+          25% { color: #38bdf8; }
+          50% { color: #06b6d4; }
+          75% { color: #0891b2; }
         }
-        @keyframes float {
+        .animate-color-change {
+          animation: color-change 3s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
           0%, 100% {
-            transform: translateY(0px);
-            background: linear-gradient(135deg, #60a5fa, #2563eb);
-          }
-          25% {
-            transform: translateY(-10px);
-            background: linear-gradient(135deg, #34d399, #10b981);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
           }
           50% {
-            transform: translateY(0px);
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-          }
-          75% {
-            transform: translateY(-10px);
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
           }
         }
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-          background-size: 200% 200%;
+        .animate-pulse-glow {
+          animation: pulse-glow 2s ease-in-out infinite;
         }
-      `}</style>
-    </div>
+      ` }} />
+      </div>
+      )}
+    </>
   );
 }
-
-export default App;
