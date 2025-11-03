@@ -40,38 +40,51 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
         <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/25 via-blue-400/25 to-blue-300/25 rounded-full blur-3xl animate-pulse delay-1500"></div>
       </div>
 
-      {/* Left Curtain - Roblox Doors Style */}
+      {/* Left Theater Door - Cinematic Style */}
       <div
-        className="absolute top-0 left-0 h-full w-1/2 bg-black animate-curtain-left"
+        className="absolute top-0 left-0 h-full w-1/2 animate-curtain-left"
         style={{
-          background: 'linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
-          boxShadow: 'inset 0 0 100px rgba(255, 255, 255, 0.1), 0 0 50px rgba(0, 0, 0, 0.8)',
+          background: `
+            linear-gradient(135deg, #1e293b 0%, #0f172a 30%, #1e293b 70%, #0f172a 100%),
+            radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 50%)
+          `,
+          boxShadow: `
+            inset 0 0 100px rgba(6, 182, 212, 0.1),
+            inset -20px 0 40px rgba(0, 0, 0, 0.3),
+            0 0 100px rgba(6, 182, 212, 0.2),
+            -10px 0 30px rgba(0, 0, 0, 0.5)
+          `,
+          transform: 'perspective(1000px) rotateY(5deg)',
+          transformOrigin: 'left center',
         }}
       >
-        {/* White Mosaic Door Pattern */}
-        <div className="absolute inset-0">
-          {[...Array(25)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute border border-white/30"
-              style={{
-                left: `${(i % 5) * 20}%`,
-                top: `${Math.floor(i / 5) * 20}%`,
-                width: '20%',
-                height: '20%',
-                background: `linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%)`,
-                boxShadow: 'inset 0 0 10px rgba(255, 255, 255, 0.1)',
-                animationDelay: `${i * 0.05}s`,
-              }}
-            >
-              {/* Inner geometric patterns */}
-              <div className="absolute inset-1 border border-white/20">
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/20 rounded-full"></div>
-                <div className="absolute top-1 left-1 w-1 h-1 bg-white/10 rounded-full"></div>
-                <div className="absolute bottom-1 right-1 w-1 h-1 bg-white/10 rounded-full"></div>
-              </div>
-            </div>
-          ))}
+        {/* BlueSpace Door Texture */}
+        <div className="absolute inset-0 opacity-80">
+          {/* Blue Grain Pattern */}
+          <div className="absolute inset-0" style={{
+            background: `
+              repeating-linear-gradient(
+                45deg,
+                rgba(15, 23, 42, 0.4) 0px,
+                rgba(30, 58, 138, 0.5) 2px,
+                rgba(15, 23, 42, 0.4) 4px,
+                rgba(59, 130, 246, 0.6) 6px,
+                rgba(15, 23, 42, 0.4) 8px
+              ),
+              linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(14, 165, 233, 0.2) 50%, rgba(6, 182, 212, 0.1) 100%)
+            `,
+            boxShadow: 'inset 0 0 50px rgba(15, 23, 42, 0.4)',
+          }}></div>
+
+          {/* Cyan Highlights */}
+          <div className="absolute inset-0" style={{
+            background: `
+              linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%, transparent 70%, rgba(255, 255, 255, 0.05) 100%),
+              radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 50%)
+            `,
+          }}></div>
         </div>
         {/* Glowing Door Frame */}
         <div className="absolute inset-2 border-2 border-white/40 animate-glow-pulse"
@@ -86,38 +99,51 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
         </div>
       </div>
 
-      {/* Right Curtain - Roblox Doors Style */}
+      {/* Right Theater Door - Cinematic Style */}
       <div
-        className="absolute top-0 right-0 h-full w-1/2 bg-black animate-curtain-right"
+        className="absolute top-0 right-0 h-full w-1/2 animate-curtain-right"
         style={{
-          background: 'linear-gradient(270deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
-          boxShadow: 'inset 0 0 100px rgba(255, 255, 255, 0.1), 0 0 50px rgba(0, 0, 0, 0.8)',
+          background: `
+            linear-gradient(225deg, #1e293b 0%, #0f172a 30%, #1e293b 70%, #0f172a 100%),
+            radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 30% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 50%)
+          `,
+          boxShadow: `
+            inset 0 0 100px rgba(6, 182, 212, 0.1),
+            inset 20px 0 40px rgba(0, 0, 0, 0.3),
+            0 0 100px rgba(6, 182, 212, 0.2),
+            10px 0 30px rgba(0, 0, 0, 0.5)
+          `,
+          transform: 'perspective(1000px) rotateY(-5deg)',
+          transformOrigin: 'right center',
         }}
       >
-        {/* White Mosaic Door Pattern */}
-        <div className="absolute inset-0">
-          {[...Array(25)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute border border-white/30"
-              style={{
-                right: `${(i % 5) * 20}%`,
-                top: `${Math.floor(i / 5) * 20}%`,
-                width: '20%',
-                height: '20%',
-                background: `linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%)`,
-                boxShadow: 'inset 0 0 10px rgba(255, 255, 255, 0.1)',
-                animationDelay: `${i * 0.05}s`,
-              }}
-            >
-              {/* Inner geometric patterns */}
-              <div className="absolute inset-1 border border-white/20">
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/20 rounded-full"></div>
-                <div className="absolute top-1 left-1 w-1 h-1 bg-white/10 rounded-full"></div>
-                <div className="absolute bottom-1 right-1 w-1 h-1 bg-white/10 rounded-full"></div>
-              </div>
-            </div>
-          ))}
+        {/* BlueSpace Door Texture */}
+        <div className="absolute inset-0 opacity-80">
+          {/* Blue Grain Pattern */}
+          <div className="absolute inset-0" style={{
+            background: `
+              repeating-linear-gradient(
+                135deg,
+                rgba(15, 23, 42, 0.4) 0px,
+                rgba(30, 58, 138, 0.5) 2px,
+                rgba(15, 23, 42, 0.4) 4px,
+                rgba(59, 130, 246, 0.6) 6px,
+                rgba(15, 23, 42, 0.4) 8px
+              ),
+              linear-gradient(225deg, rgba(6, 182, 212, 0.1) 0%, rgba(14, 165, 233, 0.2) 50%, rgba(6, 182, 212, 0.1) 100%)
+            `,
+            boxShadow: 'inset 0 0 50px rgba(15, 23, 42, 0.4)',
+          }}></div>
+
+          {/* Cyan Highlights */}
+          <div className="absolute inset-0" style={{
+            background: `
+              linear-gradient(225deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%, transparent 70%, rgba(255, 255, 255, 0.05) 100%),
+              radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 30% 70%, rgba(6, 182, 212, 0.05) 0%, transparent 50%)
+            `,
+          }}></div>
         </div>
         {/* Glowing Door Frame */}
         <div className="absolute inset-2 border-2 border-white/40 animate-glow-pulse"
