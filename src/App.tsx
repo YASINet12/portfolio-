@@ -102,7 +102,7 @@ export default function App() {
       image: '/images/projects/bluetoothmanager.jpg',
       title: 'Bluetooth Manager',
       description: 'Gestionnaire Bluetooth pour appareils connectés avec transfert de fichiers',
-      tech: ['Java', 'Android SDK', 'Bluetooth API', 'Room'],
+      tech: ['Kotlin', 'Android SDK', 'Bluetooth API', 'Room'],
       gradient: 'from-cyan-400 to-blue-600',
       link: 'https://github.com/YASINet12/Bluetooth_Manager.git'
     }
@@ -110,7 +110,7 @@ export default function App() {
 
   const skills = [
     { name: 'React & React Native', level: 75, color: 'bg-sky-200', icon: <Code2 size={20} /> },
-    { name: 'TypeScript', level: 70, color: 'bg-sky-200', icon: <Code2 size={20} /> },
+    { name: 'Kotlin', level: 70, color: 'bg-sky-200', icon: <Code2 size={20} /> },
     { name: 'Node.js & Express', level: 65, color: 'bg-sky-200', icon: <Cpu size={20} /> },
     { name: 'Flutter & Dart', level: 60, color: 'bg-sky-200', icon: <Smartphone size={20} /> },
     { name: 'UI/UX Design', level: 80, color: 'bg-sky-200', icon: <Palette size={20} /> },
