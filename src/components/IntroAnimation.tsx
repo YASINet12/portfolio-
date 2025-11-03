@@ -47,7 +47,15 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
           background: 'linear-gradient(90deg, #0B1A3E 0%, #0D1F4A 100%)',
           boxShadow: 'inset 0 0 50px rgba(0, 191, 255, 0.3)',
         }}
-      ></div>
+      >
+        {/* Lock on left curtain */}
+        <div className="absolute top-1/2 right-4 transform -translate-y-1/2 animate-lock-appear">
+          <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full border-2 border-yellow-300 shadow-lg">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-4 bg-yellow-800 rounded-sm"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-2 bg-yellow-600 rounded-full mt-1"></div>
+          </div>
+        </div>
+      </div>
 
       {/* Right Curtain */}
       <div
@@ -56,7 +64,15 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
           background: 'linear-gradient(270deg, #0B1A3E 0%, #0D1F4A 100%)',
           boxShadow: 'inset 0 0 50px rgba(0, 191, 255, 0.3)',
         }}
-      ></div>
+      >
+        {/* Lock on right curtain */}
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 animate-lock-appear">
+          <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full border-2 border-yellow-300 shadow-lg">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-4 bg-yellow-800 rounded-sm"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-2 bg-yellow-600 rounded-full mt-1"></div>
+          </div>
+        </div>
+      </div>
 
       {/* Welcome Text */}
       {showText && (
@@ -88,6 +104,11 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
           50% { opacity: 0.5; filter: blur(5px); }
           100% { opacity: 1; filter: blur(0px); }
         }
+        @keyframes lock-appear {
+          0% { opacity: 0; transform: scale(0.5) rotate(-180deg); }
+          50% { opacity: 0.7; transform: scale(1.2) rotate(0deg); }
+          100% { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
         .animate-curtain-left {
           animation: curtain-left 4s ease-in-out forwards;
         }
@@ -99,6 +120,9 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
         }
         .animate-text-glow {
           animation: text-glow 2s ease-out 1s forwards;
+        }
+        .animate-lock-appear {
+          animation: lock-appear 2s ease-out 1s forwards;
         }
       `}</style>
     </div>
