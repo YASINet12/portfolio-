@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Code2, Database, Smartphone, Globe, Palette, Cpu, ExternalLink, ArrowRight, Download, ShoppingCart, Music, Activity, Cloud, Monitor, ShoppingBag, Headphones, Dumbbell, Sun } from 'lucide-react';
+import { Mail, Github, Linkedin, Code2, Database, Smartphone, Globe, Palette, Cpu, ExternalLink, ArrowRight, Download, ShoppingCart, Music, Activity, Cloud, Monitor, ShoppingBag, Headphones, Dumbbell, Sun, ArrowUp, Phone, Users } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import Header from './components/Header';
@@ -12,6 +12,11 @@ function App() {
     subject: '',
     message: ''
   });
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [language, setLanguage] = useState<'en' | 'fr'>('fr');
+  const [showCollaborationMenu, setShowCollaborationMenu] = useState(false);
+  const [activeCollaborationItem, setActiveCollaborationItem] = useState<number | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -27,6 +32,9 @@ function App() {
         return false;
       });
       if (current) setActiveSection(current);
+
+      // Show/hide back to top button
+      setShowBackToTop(window.scrollY > 300);
 
       // Add scroll animations
       const observerOptions = {
@@ -56,52 +64,52 @@ function App() {
 
   const projects = [
     {
-      icon: <Palette size={32} className="text-white" />,
-      title: 'UI Design System',
-      description: 'Système de design moderne avec composants réutilisables et thèmes personnalisables',
-      tech: ['React', 'TypeScript', 'Tailwind', 'Figma'],
+      image: '/images/projects/eventshield.jpg',
+      title: 'EventShield',
+      description: 'Application de gestion d\'événements avec sécurité intégrée et notifications en temps réel',
+      tech: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
       gradient: 'from-cyan-400 to-blue-600',
-      link: '#'
+      link: 'https://github.com/YASINet12/EventShield-'
     },
     {
-      icon: <Smartphone size={32} className="text-white" />,
-      title: 'Social Media App',
-      description: 'Application mobile de réseau social avec chat en temps réel et stories',
-      tech: ['React Native', 'Firebase', 'Redux', 'Socket.io'],
+      image: '/images/projects/fitnesspro.jpg',
+      title: 'Fitness Pro',
+      description: 'Application de fitness professionnelle avec suivi des entraînements et plans personnalisés',
+      tech: ['Flutter', 'Dart', 'Firebase', 'Charts'],
       gradient: 'from-cyan-400 to-blue-600',
-      link: '#'
+      link: 'https://github.com/YASINet12/Fitness-pro.git'
     },
     {
-      icon: <ShoppingBag size={32} className="text-white" />,
-      title: 'E-Commerce Platform',
-      description: 'Plateforme e-commerce complète avec paiement intégré et dashboard admin',
-      tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Prisma'],
+      image: '/images/projects/neobot.jpg',
+      title: 'NeoBot',
+      description: 'Chatbot intelligent avec apprentissage automatique et intégration API',
+      tech: ['Python', 'TensorFlow', 'Flask', 'MongoDB'],
       gradient: 'from-cyan-400 to-blue-600',
-      link: '#'
+      link: 'https://github.com/YASINet12/NeoBot.git'
     },
     {
-      icon: <Headphones size={32} className="text-white" />,
-      title: 'Music Streaming App',
-      description: 'Application de streaming musical avec playlists personnalisées et recommandations IA',
-      tech: ['Vue.js', 'Node.js', 'MongoDB', 'ML'],
+      image: '/images/projects/morrobank.jpg',
+      title: 'MORROBANK',
+      description: 'Application bancaire mobile avec gestion de comptes et transactions sécurisées',
+      tech: ['React Native', 'Node.js', 'PostgreSQL', 'JWT'],
       gradient: 'from-cyan-400 to-blue-600',
-      link: '#'
+      link: 'https://github.com/YASINet12/MORROBANK.git'
     },
     {
-      icon: <Dumbbell size={32} className="text-white" />,
-      title: 'Fitness Tracker',
-      description: 'Application de suivi fitness avec statistiques détaillées et plans d\'entraînement',
-      tech: ['Flutter', 'Dart', 'SQLite', 'Charts'],
+      image: '/images/projects/wifichecker.jpg',
+      title: 'WiFi Checker',
+      description: 'Outil de diagnostic réseau WiFi avec analyse de sécurité et optimisation',
+      tech: ['Python', 'Tkinter', 'Scapy', 'SQLite'],
       gradient: 'from-cyan-400 to-blue-600',
-      link: '#'
+      link: 'https://github.com/YASINet12/wifichecker.git'
     },
     {
-      icon: <Sun size={32} className="text-white" />,
-      title: 'Weather Dashboard',
-      description: 'Dashboard météo interactif avec prévisions détaillées et cartes animées',
-      tech: ['React', 'OpenWeather API', 'D3.js', 'Leaflet'],
+      image: '/images/projects/bluetoothmanager.jpg',
+      title: 'Bluetooth Manager',
+      description: 'Gestionnaire Bluetooth pour appareils connectés avec transfert de fichiers',
+      tech: ['Java', 'Android SDK', 'Bluetooth API', 'Room'],
       gradient: 'from-cyan-400 to-blue-600',
-      link: '#'
+      link: 'https://github.com/YASINet12/Bluetooth_Manager.git'
     }
   ];
 
@@ -144,9 +152,90 @@ function App() {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'fr' : 'en');
+  };
+
+  const toggleCollaborationMenu = () => {
+    setShowCollaborationMenu(!showCollaborationMenu);
+    if (showCollaborationMenu) {
+      setActiveCollaborationItem(null);
+    }
+  };
+
+  const handleCollaborationItemClick = (index: number) => {
+    setActiveCollaborationItem(activeCollaborationItem === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-950 to-black relative overflow-hidden transition-colors duration-300">
       <Header />
+
+      {/* Language Switcher */}
+      <button
+        onClick={toggleLanguage}
+        className="fixed top-4 right-4 bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full px-4 py-2 text-white dark:text-gray-200 hover:bg-white/20 dark:hover:bg-gray-600/50 transition-all hover:scale-105 border border-sky-200 z-50"
+      >
+        {language === 'en' ? 'FR' : 'EN'}
+      </button>
+
+      {/* Collaboration Menu */}
+      <div className="fixed bottom-8 left-8 z-50">
+        <button
+          onClick={toggleCollaborationMenu}
+          className="text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-sky-200 animate-float"
+          aria-label="Collaboration menu"
+        >
+          <Users size={24} />
+        </button>
+
+        {showCollaborationMenu && (
+          <div className="absolute bottom-16 left-0 flex flex-col gap-3 animate-slide-in-up">
+            {/* Phone */}
+            <div
+              onClick={() => handleCollaborationItemClick(0)}
+              className={`bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 border border-sky-200 cursor-pointer ${
+                activeCollaborationItem === 0 ? 'scale-110 bg-blue-500/20' : ''
+              }`}
+              style={{ animationDelay: '0ms' }}
+            >
+              <a href="tel:+212622039788" className="block" onClick={(e) => e.stopPropagation()}>
+                <Phone size={20} className="text-white" />
+              </a>
+            </div>
+
+            {/* LinkedIn */}
+            <div
+              onClick={() => handleCollaborationItemClick(1)}
+              className={`bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 border border-sky-200 cursor-pointer ${
+                activeCollaborationItem === 1 ? 'scale-110 bg-blue-500/20' : ''
+              }`}
+              style={{ animationDelay: '100ms' }}
+            >
+              <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" className="block" onClick={(e) => e.stopPropagation()}>
+                <Linkedin size={20} className="text-white" />
+              </a>
+            </div>
+
+            {/* GitHub */}
+            <div
+              onClick={() => handleCollaborationItemClick(2)}
+              className={`bg-white/10 dark:bg-gray-700/50 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 border border-sky-200 cursor-pointer ${
+                activeCollaborationItem === 2 ? 'scale-110 bg-blue-500/20' : ''
+              }`}
+              style={{ animationDelay: '200ms' }}
+            >
+              <a href="https://github.com/YASINet12" target="_blank" rel="noopener noreferrer" className="block" onClick={(e) => e.stopPropagation()}>
+                <Github size={20} className="text-white" />
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
 
       {/* Cosmic Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
@@ -197,10 +286,13 @@ function App() {
               Yassine ET-TAHERY
             </h1>
             <p className="text-2xl md:text-3xl text-blue-300 dark:text-blue-400 font-medium mb-6">
-              Mobile & Web Developer
+              {language === 'en' ? 'Mobile & Web Developer' : 'Développeur Mobile & Web'}
             </p>
             <p className="text-lg text-gray-300 dark:text-gray-400 max-w-2xl mb-8">
-              Développeur junior passionné par la création d'expériences numériques modernes et innovantes
+              {language === 'en'
+                ? 'Junior developer passionate about creating modern and innovative digital experiences'
+                : 'Développeur junior passionné par la création d\'expériences numériques modernes et innovantes'
+              }
             </p>
 
             <div className="flex gap-4 mb-12">
@@ -219,7 +311,7 @@ function App() {
             </div>
 
             <a href="#about" className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-400/50 transition-all hover:scale-105">
-              Découvrir mon portfolio
+              {language === 'en' ? 'Discover my portfolio' : 'Découvrir mon portfolio'}
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
             </a>
           </div>
@@ -239,13 +331,19 @@ function App() {
             <div className="bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/50 dark:hover:border-cyan-300/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-400/20 dark:hover:shadow-cyan-300/10">
               <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-6 flex items-center gap-3">
                 <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
-                À propos de moi
+                {language === 'en' ? 'About Me' : 'À propos de moi'}
               </h2>
               <p className="text-lg text-gray-300 dark:text-gray-400 leading-relaxed">
-                Je suis un <span className="text-sky-200 dark:text-sky-300 font-semibold">développeur mobile et web</span>, passionné par les technologies modernes. Je me spécialise dans le développement
-                d'applications mobiles multiplateformes avec <span className="text-blue-400 dark:text-blue-300">React Native</span> et <span className="text-blue-400 dark:text-blue-300">Flutter</span>,
-                ainsi que dans la création d'interfaces web dynamiques en utilisant <span className="text-cyan-400 dark:text-cyan-300">React</span>, <span className="text-cyan-400 dark:text-cyan-300">Next.js</span> et <span className="text-cyan-400 dark:text-cyan-300">Vue.js</span>.
-                Mon objectif est de concevoir des solutions performantes, intuitives et innovantes, en plaçant la qualité du code et l'expérience utilisateur au centre de mes priorités.
+                {language === 'en'
+                  ? <>I am a <span className="text-sky-200 dark:text-sky-300 font-semibold">mobile and web developer</span>, passionate about modern technologies. I specialize in developing
+                  cross-platform mobile applications with <span className="text-blue-400 dark:text-blue-300">React Native</span> and <span className="text-blue-400 dark:text-blue-300">Flutter</span>,
+                  as well as creating dynamic web interfaces using <span className="text-cyan-400 dark:text-cyan-300">React</span>, <span className="text-cyan-400 dark:text-cyan-300">Next.js</span> and <span className="text-cyan-400 dark:text-cyan-300">Vue.js</span>.
+                  My goal is to design performant, intuitive and innovative solutions, placing code quality and user experience at the center of my priorities.</>
+                  : <>Je suis un <span className="text-sky-200 dark:text-sky-300 font-semibold">développeur mobile et web</span>, passionné par les technologies modernes. Je me spécialise dans le développement
+                  d'applications mobiles multiplateformes avec <span className="text-blue-400 dark:text-blue-300">React Native</span> et <span className="text-blue-400 dark:text-blue-300">Flutter</span>,
+                  ainsi que dans la création d'interfaces web dynamiques en utilisant <span className="text-cyan-400 dark:text-cyan-300">React</span>, <span className="text-cyan-400 dark:text-cyan-300">Next.js</span> et <span className="text-cyan-400 dark:text-cyan-300">Vue.js</span>.
+                  Mon objectif est de concevoir des solutions performantes, intuitives et innovantes, en plaçant la qualité du code et l'expérience utilisateur au centre de mes priorités.</>
+                }
               </p>
             </div>
           </div>
@@ -256,18 +354,19 @@ function App() {
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-12 text-center flex items-center justify-center gap-3">
               <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
-              Compétences & Technologies
+              {language === 'en' ? 'Skills & Technologies' : 'Compétences & Technologies'}
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {skills.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="skill-card bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-6 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/50 dark:hover:border-cyan-300/50 transition-all duration-500 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8 flex items-center gap-4"
+                  onClick={() => setSelectedSkill(selectedSkill === skill.name ? null : skill.name)}
+                  className="skill-card bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-6 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/50 dark:hover:border-cyan-300/50 transition-all duration-500 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8 flex items-center gap-4 cursor-pointer"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className={`p-4 rounded-xl ${skill.color} text-white text-2xl border border-sky-200`}>
-                    <div className="text-sky-400">
+                  <div className={`p-4 rounded-xl ${skill.color} text-white text-2xl border border-sky-200 transition-all duration-300 ${selectedSkill === skill.name ? 'scale-110 bg-sky-300' : ''}`}>
+                    <div className={`transition-all duration-300 ${selectedSkill === skill.name ? 'text-sky-600' : 'text-sky-400'}`}>
                       {skill.icon}
                     </div>
                   </div>
@@ -285,7 +384,7 @@ function App() {
           <div className="container mx-auto max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-12 text-center flex items-center justify-center gap-3">
               <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
-              Projets Réalisés
+              {language === 'en' ? 'Completed Projects' : 'Projets Réalisés'}
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -295,8 +394,12 @@ function App() {
                   className="project-card group bg-white/5 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl p-4 border border-white/10 dark:border-gray-600/30 hover:border-cyan-400/30 dark:hover:border-cyan-300/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:-translate-y-2 opacity-0 translate-y-8"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className={`w-16 h-16 bg-gradient-to-br ${project.gradient} rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 border border-sky-200`}>
-                    {project.icon}
+                  <div className="w-full h-32 mb-4 overflow-hidden rounded-xl group-hover:scale-105 transition-transform duration-500 border border-sky-200">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
 
                   <h3 className="text-xl font-bold text-white dark:text-gray-100 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 dark:group-hover:from-blue-300 group-hover:to-blue-600 dark:group-hover:to-blue-500 group-hover:bg-clip-text transition-all">
@@ -319,7 +422,7 @@ function App() {
                     href={project.link}
                     className="inline-flex items-center gap-2 text-sm text-blue-400 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors group/link"
                   >
-                    Voir le projet
+                    {language === 'en' ? 'View project' : 'Voir le projet'}
                     <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                   </a>
                 </div>
@@ -334,7 +437,7 @@ function App() {
               <div className="bg-gradient-to-br from-blue-500/20 via-blue-400/20 to-blue-300/20 dark:from-blue-400/10 dark:via-blue-300/10 dark:to-blue-200/10 backdrop-blur-xl rounded-3xl p-4 md:p-6 border border-white/20 dark:border-gray-600/20">
               <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-gray-100 mb-8 text-center flex items-center justify-center gap-3">
                 <span className="w-2 h-12 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></span>
-                Contactez-moi
+                {language === 'en' ? 'Contact Me' : 'Contactez-moi'}
               </h2>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -343,7 +446,7 @@ function App() {
                     <Mail className="text-white" size={24} />
                   </div>
                   <div>
-                    <p className="text-gray-400 dark:text-gray-500 text-sm">Email</p>
+                    <p className="text-gray-400 dark:text-gray-500 text-sm">{language === 'en' ? 'Email' : 'Email'}</p>
                     <p className="text-white dark:text-gray-100 font-semibold">yassinetahery7@gmail.com</p>
                   </div>
                 </a>
@@ -373,20 +476,20 @@ function App() {
                     <Globe className="text-white" size={24} />
                   </div>
                   <div>
-                    <p className="text-gray-400 dark:text-gray-500 text-sm">Portfolio</p>
+                    <p className="text-gray-400 dark:text-gray-500 text-sm">{language === 'en' ? 'Portfolio' : 'Portfolio'}</p>
                     <p className="text-white dark:text-gray-100 font-semibold">www.ET-TAHERY-Yassine.com</p>
                   </div>
                 </a>
               </div>
 
               {/* Contact Form */}
-              <div className="mt-12">
-                <h3 className="text-2xl font-bold text-white dark:text-gray-100 mb-6 text-center">Envoyez-moi un message</h3>
-                <form onSubmit={handleFormSubmit} className="max-w-2xl mx-auto space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+              <div className="mt-8">
+                <h3 className="text-xl font-bold text-white dark:text-gray-100 mb-4 text-center">{language === 'en' ? 'Send me a message' : 'Envoyez-moi un message'}</h3>
+                <form onSubmit={handleFormSubmit} className="max-w-lg mx-auto space-y-3">
+                  <div className="grid md:grid-cols-2 gap-3">
                     <div>
-                      <label htmlFor="email" className="block text-gray-300 dark:text-gray-400 text-sm font-medium mb-2">
-                        Email *
+                      <label htmlFor="email" className="block text-gray-300 dark:text-gray-400 text-sm font-medium mb-1">
+                        {language === 'en' ? 'Email *' : 'Email *'}
                       </label>
                       <input
                         type="email"
@@ -395,13 +498,13 @@ function App() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-white/10 dark:bg-gray-700/50 border border-white/20 dark:border-gray-600/30 rounded-xl text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 focus:border-transparent transition-all"
-                        placeholder="votre.email@example.com"
+                        className="w-full px-3 py-2 bg-white/10 dark:bg-gray-700/50 border border-white/20 dark:border-gray-600/30 rounded-lg text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 focus:border-transparent transition-all text-sm"
+                        placeholder={language === 'en' ? 'your.email@example.com' : 'votre.email@example.com'}
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-gray-300 dark:text-gray-400 text-sm font-medium mb-2">
-                        Sujet *
+                      <label htmlFor="subject" className="block text-gray-300 dark:text-gray-400 text-sm font-medium mb-1">
+                        {language === 'en' ? 'Subject *' : 'Sujet *'}
                       </label>
                       <input
                         type="text"
@@ -410,14 +513,14 @@ function App() {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-white/10 dark:bg-gray-700/50 border border-white/20 dark:border-gray-600/30 rounded-xl text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 focus:border-transparent transition-all"
-                        placeholder="Objet de votre message"
+                        className="w-full px-3 py-2 bg-white/10 dark:bg-gray-700/50 border border-white/20 dark:border-gray-600/30 rounded-lg text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 focus:border-transparent transition-all text-sm"
+                        placeholder={language === 'en' ? 'Subject of your message' : 'Objet de votre message'}
                       />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-gray-300 dark:text-gray-400 text-sm font-medium mb-2">
-                      Message *
+                    <label htmlFor="message" className="block text-gray-300 dark:text-gray-400 text-sm font-medium mb-1">
+                      {language === 'en' ? 'Message *' : 'Message *'}
                     </label>
                     <textarea
                       id="message"
@@ -425,27 +528,36 @@ function App() {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-white/10 dark:bg-gray-700/50 border border-white/20 dark:border-gray-600/30 rounded-xl text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 focus:border-transparent transition-all resize-none"
-                      placeholder="Votre message..."
+                      rows={2}
+                      className="w-full px-3 py-2 bg-white/10 dark:bg-gray-700/50 border border-white/20 dark:border-gray-600/30 rounded-lg text-white dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-300 focus:border-transparent transition-all resize-none text-sm"
+                      placeholder={language === 'en' ? 'Your message...' : 'Votre message...'}
                     />
                   </div>
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-400/50 transition-all hover:scale-105 border border-sky-200"
+                      className="px-4 py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-400/50 transition-all hover:scale-105 border border-sky-200 text-sm"
                     >
-                      Envoyer le message
+                      {language === 'en' ? 'Send' : 'Envoyer'}
                     </button>
                   </div>
                 </form>
               </div>
-
-
             </div>
           </div>
         </section>
       </main>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-gradient-to-r from-blue-400 to-blue-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-50"
+          aria-label="Back to top"
+        >
+          <ArrowUp size={24} />
+        </button>
+      )}
 
       {/* Footer */}
       <footer className="relative py-8 px-4 border-t border-white/10 dark:border-gray-600/30">
@@ -493,6 +605,54 @@ function App() {
         }
         .delay-1000 {
           animation-delay: 1000ms;
+        }
+        @keyframes slide-in-right {
+          0% {
+            opacity: 0;
+            transform: translateX(100px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .animate-slide-in-right {
+          animation: slide-in-right 0.5s ease-out forwards;
+        }
+        @keyframes slide-in-up {
+          0% {
+            opacity: 0;
+            transform: translateY(100px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-slide-in-up {
+          animation: slide-in-up 0.5s ease-out forwards;
+        }
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+          }
+          25% {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, #34d399, #10b981);
+          }
+          50% {
+            transform: translateY(0px);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+          }
+          75% {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+          }
+        }
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+          background-size: 200% 200%;
         }
       `}</style>
     </div>
