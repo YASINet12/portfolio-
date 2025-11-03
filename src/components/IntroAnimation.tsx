@@ -40,28 +40,42 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
         <div className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/25 via-blue-400/25 to-blue-300/25 rounded-full blur-3xl animate-pulse delay-1500"></div>
       </div>
 
-      {/* Left Curtain */}
+      {/* Left Curtain - Roblox Doors Style */}
       <div
-        className="absolute top-0 left-0 h-full w-1/2 bg-gradient-to-r from-[#0B1A3E] to-[#0D1F4A] animate-curtain-left"
+        className="absolute top-0 left-0 h-full w-1/2 bg-black animate-curtain-left"
         style={{
-          background: 'linear-gradient(90deg, #0B1A3E 0%, #0D1F4A 100%)',
-          boxShadow: 'inset 0 0 50px rgba(0, 191, 255, 0.3)',
+          background: 'linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
+          boxShadow: 'inset 0 0 100px rgba(255, 255, 255, 0.1), 0 0 50px rgba(0, 0, 0, 0.8)',
         }}
       >
-        {/* Mosaic Door Pattern on left curtain */}
-        <div className="absolute inset-0 opacity-30">
-          {[...Array(20)].map((_, i) => (
+        {/* White Mosaic Door Pattern */}
+        <div className="absolute inset-0">
+          {[...Array(25)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-16 h-16 border border-cyan-400/20"
+              className="absolute border border-white/30"
               style={{
                 left: `${(i % 5) * 20}%`,
                 top: `${Math.floor(i / 5) * 20}%`,
-                background: `linear-gradient(45deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 191, 255, 0.05) 50%, rgba(0, 191, 255, 0.1) 100%)`,
-                animationDelay: `${i * 0.1}s`,
+                width: '20%',
+                height: '20%',
+                background: `linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%)`,
+                boxShadow: 'inset 0 0 10px rgba(255, 255, 255, 0.1)',
+                animationDelay: `${i * 0.05}s`,
               }}
-            />
+            >
+              {/* Inner geometric patterns */}
+              <div className="absolute inset-1 border border-white/20">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/20 rounded-full"></div>
+                <div className="absolute top-1 left-1 w-1 h-1 bg-white/10 rounded-full"></div>
+                <div className="absolute bottom-1 right-1 w-1 h-1 bg-white/10 rounded-full"></div>
+              </div>
+            </div>
           ))}
+        </div>
+        {/* Glowing Door Frame */}
+        <div className="absolute inset-2 border-2 border-white/40 animate-glow-pulse"
+             style={{ boxShadow: '0 0 30px rgba(255, 255, 255, 0.3)' }}>
         </div>
         {/* Lock on left curtain */}
         <div className="absolute top-1/2 right-4 transform -translate-y-1/2 animate-lock-appear z-10">
@@ -72,28 +86,42 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
         </div>
       </div>
 
-      {/* Right Curtain */}
+      {/* Right Curtain - Roblox Doors Style */}
       <div
-        className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-[#0B1A3E] to-[#0D1F4A] animate-curtain-right"
+        className="absolute top-0 right-0 h-full w-1/2 bg-black animate-curtain-right"
         style={{
-          background: 'linear-gradient(270deg, #0B1A3E 0%, #0D1F4A 100%)',
-          boxShadow: 'inset 0 0 50px rgba(0, 191, 255, 0.3)',
+          background: 'linear-gradient(270deg, #000000 0%, #0a0a0a 50%, #000000 100%)',
+          boxShadow: 'inset 0 0 100px rgba(255, 255, 255, 0.1), 0 0 50px rgba(0, 0, 0, 0.8)',
         }}
       >
-        {/* Mosaic Door Pattern on right curtain */}
-        <div className="absolute inset-0 opacity-30">
-          {[...Array(20)].map((_, i) => (
+        {/* White Mosaic Door Pattern */}
+        <div className="absolute inset-0">
+          {[...Array(25)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-16 h-16 border border-cyan-400/20"
+              className="absolute border border-white/30"
               style={{
                 right: `${(i % 5) * 20}%`,
                 top: `${Math.floor(i / 5) * 20}%`,
-                background: `linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 191, 255, 0.05) 50%, rgba(0, 191, 255, 0.1) 100%)`,
-                animationDelay: `${i * 0.1}s`,
+                width: '20%',
+                height: '20%',
+                background: `linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%)`,
+                boxShadow: 'inset 0 0 10px rgba(255, 255, 255, 0.1)',
+                animationDelay: `${i * 0.05}s`,
               }}
-            />
+            >
+              {/* Inner geometric patterns */}
+              <div className="absolute inset-1 border border-white/20">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-white/20 rounded-full"></div>
+                <div className="absolute top-1 left-1 w-1 h-1 bg-white/10 rounded-full"></div>
+                <div className="absolute bottom-1 right-1 w-1 h-1 bg-white/10 rounded-full"></div>
+              </div>
+            </div>
           ))}
+        </div>
+        {/* Glowing Door Frame */}
+        <div className="absolute inset-2 border-2 border-white/40 animate-glow-pulse"
+             style={{ boxShadow: '0 0 30px rgba(255, 255, 255, 0.3)' }}>
         </div>
         {/* Lock on right curtain */}
         <div className="absolute top-1/2 left-4 transform -translate-y-1/2 animate-lock-appear z-10">
@@ -139,6 +167,10 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
           50% { opacity: 0.7; transform: scale(1.2) rotate(0deg); }
           100% { opacity: 1; transform: scale(1) rotate(0deg); }
         }
+        @keyframes glow-pulse {
+          0%, 100% { opacity: 0.4; box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+          50% { opacity: 0.8; box-shadow: 0 0 50px rgba(255, 255, 255, 0.6); }
+        }
         .animate-curtain-left {
           animation: curtain-left 4s ease-in-out forwards;
         }
@@ -153,6 +185,9 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
         }
         .animate-lock-appear {
           animation: lock-appear 2s ease-out 1s forwards;
+        }
+        .animate-glow-pulse {
+          animation: glow-pulse 3s ease-in-out infinite;
         }
       `}</style>
     </div>
