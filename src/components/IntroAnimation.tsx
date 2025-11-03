@@ -48,8 +48,23 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
           boxShadow: 'inset 0 0 50px rgba(0, 191, 255, 0.3)',
         }}
       >
+        {/* Mosaic Door Pattern on left curtain */}
+        <div className="absolute inset-0 opacity-30">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-16 h-16 border border-cyan-400/20"
+              style={{
+                left: `${(i % 5) * 20}%`,
+                top: `${Math.floor(i / 5) * 20}%`,
+                background: `linear-gradient(45deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 191, 255, 0.05) 50%, rgba(0, 191, 255, 0.1) 100%)`,
+                animationDelay: `${i * 0.1}s`,
+              }}
+            />
+          ))}
+        </div>
         {/* Lock on left curtain */}
-        <div className="absolute top-1/2 right-4 transform -translate-y-1/2 animate-lock-appear">
+        <div className="absolute top-1/2 right-4 transform -translate-y-1/2 animate-lock-appear z-10">
           <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full border-2 border-yellow-300 shadow-lg">
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-4 bg-yellow-800 rounded-sm"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-2 bg-yellow-600 rounded-full mt-1"></div>
@@ -65,8 +80,23 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
           boxShadow: 'inset 0 0 50px rgba(0, 191, 255, 0.3)',
         }}
       >
+        {/* Mosaic Door Pattern on right curtain */}
+        <div className="absolute inset-0 opacity-30">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-16 h-16 border border-cyan-400/20"
+              style={{
+                right: `${(i % 5) * 20}%`,
+                top: `${Math.floor(i / 5) * 20}%`,
+                background: `linear-gradient(135deg, rgba(0, 191, 255, 0.1) 0%, rgba(0, 191, 255, 0.05) 50%, rgba(0, 191, 255, 0.1) 100%)`,
+                animationDelay: `${i * 0.1}s`,
+              }}
+            />
+          ))}
+        </div>
         {/* Lock on right curtain */}
-        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 animate-lock-appear">
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2 animate-lock-appear z-10">
           <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full border-2 border-yellow-300 shadow-lg">
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-4 bg-yellow-800 rounded-sm"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1 h-2 bg-yellow-600 rounded-full mt-1"></div>
