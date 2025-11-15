@@ -114,7 +114,6 @@ export default function App() {
     { name: 'Node.js & Express', level: 65, color: 'bg-sky-200', icon: <Cpu size={20} /> },
     { name: 'Flutter & Dart', level: 60, color: 'bg-sky-200', icon: <Smartphone size={20} /> },
     { name: 'UI/UX Design', level: 80, color: 'bg-sky-200', icon: <Palette size={20} /> },
-    { name: 'Vue.js', level: 70, color: 'bg-sky-200', icon: <Globe size={20} /> },
     { name: 'REST API', level: 65, color: 'bg-sky-200', icon: <Cpu size={20} /> },
     { name: 'Git & GitHub', level: 85, color: 'bg-sky-200', icon: <Github size={20} /> }
   ];
