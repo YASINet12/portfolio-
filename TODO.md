@@ -9,6 +9,7 @@
 - [x] Initialize Git repository and commit changes
 - [x] Push changes to GitHub repository
 - [x] Remove MongoDB and PostgreSQL from skills section
+- [x] Remove Next.js from skills section
 - [x] Create a subdirectory for project images: public/images/projects/
 - [x] Update image paths in src/App.tsx projects array to use local images
 - [ ] Add actual project images to public/images/projects/ (user action)

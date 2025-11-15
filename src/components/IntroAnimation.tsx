@@ -153,12 +153,48 @@ const IntroAnimation: React.FC<{ onComplete: () => void }> = ({ onComplete }) =>
       {/* Welcome Text */}
       {showText && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white animate-text-fade-in">
-            Welcome to My Portfolio
-            <div className="absolute inset-0 text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent animate-glow opacity-0 animate-text-glow">
+          <div className="relative">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white animate-text-fade-in relative z-10 animate-text-shimmer"
+                style={{
+                  fontFamily: "'Dancing Script', cursive",
+                  textShadow: '0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(6, 182, 212, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)',
+                  background: 'linear-gradient(45deg, #ffffff, #e0f2fe, #bae6fd, #ffffff)',
+                  backgroundSize: '200% 200%',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.3))'
+                }}>
+              Welcome to My Portfolio
+            </h1>
+            <div className="absolute inset-0 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-glow opacity-0 animate-text-glow"
+                 style={{
+                   fontFamily: "'Dancing Script', cursive",
+                   textShadow: '0 0 30px rgba(6, 182, 212, 0.8), 0 0 60px rgba(6, 182, 212, 0.6), 0 0 90px rgba(6, 182, 212, 0.4)',
+                   filter: 'blur(0px)'
+                 }}>
               Welcome to My Portfolio
             </div>
-          </h1>
+            {/* Additional glow layers for more beauty */}
+            <div className="absolute inset-0 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cyan-300 animate-text-glow opacity-0"
+                 style={{
+                   fontFamily: "'Dancing Script', cursive",
+                   textShadow: '0 0 40px rgba(6, 182, 212, 1), 0 0 80px rgba(6, 182, 212, 0.8), 0 0 120px rgba(6, 182, 212, 0.6)',
+                   animationDelay: '0.5s',
+                   filter: 'blur(1px)'
+                 }}>
+              Welcome to My Portfolio
+            </div>
+            <div className="absolute inset-0 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-blue-200 animate-text-glow opacity-0"
+                 style={{
+                   fontFamily: "'Dancing Script', cursive",
+                   textShadow: '0 0 50px rgba(59, 130, 246, 0.8), 0 0 100px rgba(59, 130, 246, 0.6), 0 0 150px rgba(59, 130, 246, 0.4)',
+                   animationDelay: '1s',
+                   filter: 'blur(2px)'
+                 }}>
+              Welcome to My Portfolio
+            </div>
+          </div>
         </div>
       )}
     </div>
