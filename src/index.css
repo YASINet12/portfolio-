@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom media queries for enhanced responsiveness */
+@media (max-width: 475px) {
+  /* Extra small devices (phones < 475px) */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Ultra-wide screens */
+  .container {
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 2560px) {
+  /* 4K and larger screens */
+  .container {
+    max-width: 2000px;
+  }
+
+  .hero-title {
+    font-size: 8rem;
+  }
+}
+
+/* Landscape phones and small tablets */
+@media (max-width: 640px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 80vh;
+  }
+}
+
+/* Large tablets and small laptops */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .hover-scale:hover {
+    transform: none;
+  }
+
+  .hover-shadow:hover {
+    box-shadow: none;
+  }
+}
