@@ -339,11 +339,11 @@ export default function App() {
                 {language === 'en'
                   ? <>I am a <span className="text-sky-200 dark:text-sky-300 font-semibold">mobile and web developer</span>, passionate about modern technologies. I specialize in developing
                   cross-platform mobile applications with <span className="text-blue-400 dark:text-blue-300">React Native</span> and <span className="text-blue-400 dark:text-blue-300">Flutter</span>,
-                  as well as creating dynamic web interfaces using <span className="text-cyan-400 dark:text-cyan-300">React</span>, <span className="text-cyan-400 dark:text-cyan-300">Next.js</span> and <span className="text-cyan-400 dark:text-cyan-300">Vue.js</span>.
+                  as well as creating dynamic web interfaces using <span className="text-cyan-400 dark:text-cyan-300">React</span>.
                   My goal is to design performant, intuitive and innovative solutions, placing code quality and user experience at the center of my priorities.</>
                   : <>Je suis un <span className="text-sky-200 dark:text-sky-300 font-semibold">développeur mobile et web</span>, passionné par les technologies modernes. Je me spécialise dans le développement
                   d'applications mobiles multiplateformes avec <span className="text-blue-400 dark:text-blue-300">React Native</span> et <span className="text-blue-400 dark:text-blue-300">Flutter</span>,
-                  ainsi que dans la création d'interfaces web dynamiques en utilisant <span className="text-cyan-400 dark:text-cyan-300">React</span>, <span className="text-cyan-400 dark:text-cyan-300">Next.js</span> et <span className="text-cyan-400 dark:text-cyan-300">Vue.js</span>.
+                  ainsi que dans la création d'interfaces web dynamiques en utilisant <span className="text-cyan-400 dark:text-cyan-300">React</span>.
                   Mon objectif est de concevoir des solutions performantes, intuitives et innovantes, en plaçant la qualité du code et l'expérience utilisateur au centre de mes priorités.</>
                 }
               </p>
