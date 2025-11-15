@@ -79,14 +79,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-gray-300" />}
-            </button>
+          <div className="md:hidden">
             <button
               className="text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
