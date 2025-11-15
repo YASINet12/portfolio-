@@ -1,32 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Smartphone } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X, Smartphone } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
 
   const navItems = [
     { name: 'Accueil', href: '#hero' },
@@ -56,7 +32,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 lg:space-x-8 items-center">
+          <nav className="hidden md:flex space-x-8 items-center">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -67,15 +43,6 @@ const Header: React.FC = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 group-hover:w-full transition-all duration-300"></span>
               </button>
             ))}
-
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-gray-300" />}
-            </button>
           </nav>
 
           {/* Mobile Menu Button */}

@@ -360,7 +360,7 @@ export default function App() {
               {language === 'en' ? 'Skills & Technologies' : 'Compétences & Technologies'}
             </h2>
 
-            <div className="skills-grid grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {skills.map((skill, index) => (
                 <div
                   key={skill.name}
@@ -633,25 +633,15 @@ export default function App() {
             transform: translateY(0);
           }
         }
-        @keyframes color-change {
-          0%, 100% { color: #ffffff; }
-          25% { color: #38bdf8; }
-          50% { color: #06b6d4; }
-          75% { color: #0891b2; }
+        .animate-slide-in-up {
+          animation: slide-in-up 0.5s ease-out forwards;
         }
-        .animate-color-change {
-          animation: color-change 3s ease-in-out infinite;
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
         }
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-          }
-          50% {
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
-          }
-        }
-        .animate-pulse-glow {
-          animation: pulse-glow 2s ease-in-out infinite;
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
         }
       ` }} />
       </div>
